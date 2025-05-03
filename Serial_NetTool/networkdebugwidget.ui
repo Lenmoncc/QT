@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>nettooldebugwidget</class>
+ <widget class="QWidget" name="nettooldebugwidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>806</width>
+    <height>563</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPlainTextEdit" name="recvEdit">
+   <property name="geometry">
+    <rect>
+     <x>287</x>
+     <y>47</y>
+     <width>491</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_4">
+   <property name="geometry">
+    <rect>
+     <x>276</x>
+     <y>16</y>
+     <width>511</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>接收数据</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>356</y>
+     <width>241</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>发送设置</string>
+   </property>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>80</y>
+      <width>20</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ms</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLineEdit" name="port">
+   <property name="geometry">
+    <rect>
+     <x>96</x>
+     <y>112</y>
+     <width>142</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>8888</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clr_send">
+   <property name="geometry">
+    <rect>
+     <x>29</x>
+     <y>389</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>清空发送</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="listen">
+   <property name="geometry">
+    <rect>
+     <x>136</x>
+     <y>145</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>监听</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>112</y>
+     <width>45</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>端口号</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="hex_send">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>390</y>
+     <width>101</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>HEX发送</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>236</y>
+     <width>241</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>接收设置</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="hex_recv">
+   <property name="geometry">
+    <rect>
+     <x>146</x>
+     <y>268</y>
+     <width>101</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>HEX接收</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="network_protocol">
+   <property name="geometry">
+    <rect>
+     <x>96</x>
+     <y>50</y>
+     <width>101</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>UDP</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>TCP服务器</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>TCP客户端</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_5">
+   <property name="geometry">
+    <rect>
+     <x>276</x>
+     <y>356</y>
+     <width>511</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>发送数据</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pause_recv">
+   <property name="geometry">
+    <rect>
+     <x>27</x>
+     <y>304</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>暂停接收</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="refresh">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>145</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>刷新</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="send">
+   <property name="geometry">
+    <rect>
+     <x>27</x>
+     <y>465</y>
+     <width>221</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>发送</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clr_recv">
+   <property name="geometry">
+    <rect>
+     <x>27</x>
+     <y>267</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>清空接收</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>60</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>协议类型</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>16</y>
+     <width>241</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>网络设置</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>81</y>
+     <width>44</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>IP地址</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="clk_recv">
+   <property name="geometry">
+    <rect>
+     <x>146</x>
+     <y>305</y>
+     <width>70</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>时间戳</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="connect">
+   <property name="geometry">
+    <rect>
+     <x>28</x>
+     <y>184</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>连接</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="send_time">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>429</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="sendEdit">
+   <property name="geometry">
+    <rect>
+     <x>286</x>
+     <y>387</y>
+     <width>491</width>
+     <height>121</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="clk_send">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>428</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>定时发送</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ip_addr">
+   <property name="geometry">
+    <rect>
+     <x>96</x>
+     <y>81</y>
+     <width>142</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>192.168.137.219</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

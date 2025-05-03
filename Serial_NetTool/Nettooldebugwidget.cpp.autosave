@@ -1,0 +1,14 @@
+#include "Nettooldebugwidget.h"
+#include "ui_nettooldebugwidget.h"
+
+nettooldebugwidget::nettooldebugwidget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::nettooldebugwidget)
+{
+    ui->setupUi(this);
+}
+
+nettooldebugwidget::~nettooldebugwidget()
+{
+    delete ui;
+}
