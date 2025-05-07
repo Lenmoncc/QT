@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     scanAndAddSerialPorts();
     initTimer();
     initStatusBar();
+
+    ui->sendEdit->setPlainText("Hello, World!");
 }
 
 MainWindow::~MainWindow()
@@ -205,7 +207,8 @@ void MainWindow::on_sendbutton_clicked()
             array = QByteArray::fromHex(ui->sendEdit->toPlainText().toUtf8()).data();
         }else{
             //array = data.toLatin1();    //ASCII
-            array = ui->sendEdit->toPlainText().toLocal8Bit().data();
+            //array = ui->sendEdit->toPlainText().toLocal8Bit().data();
+            array = ui->sendEdit->toPlainText().toUtf8();
         }
 
         if(ui->rev_line_checkbox->checkState() == Qt::Checked){
@@ -220,6 +223,50 @@ void MainWindow::on_sendbutton_clicked()
             sendNum += a;
             // 状态栏显示计数值
             setNumOnLabel(lblSendNum, "S: ", sendNum);
+
+            // 将发送的内容显示到接收框
+            QString sendStr;
+            if(ui->rev_hex_checkbox->checkState() == false){
+                if(ui->rev_time_checkbox->checkState() == Qt::Checked){
+                    QDateTime nowtime = QDateTime::currentDateTime();
+                    sendStr = "[" + nowtime.toString("yyyy-MM-dd hh:mm:ss") + "] [Sent] ";
+                    sendStr += QString(array).append("\r\n");
+                }
+                else{
+                    if(ui->rev_line_checkbox->checkState() == Qt::Checked){
+                        sendStr = "[Sent] " + QString(array).append("\r\n");
+                    }
+                    else
+                    {
+                        sendStr = "[Sent] " + QString(array);
+                    }
+                }
+            }else{
+                // 16进制显示，并转换为大写
+                QString str1 = array.toHex().toUpper();
+                // 添加空格
+                QString str2;
+                for(int i = 0; i<str1.length (); i+=2)
+                {
+                    str2 += str1.mid (i,2);
+                    str2 += " ";
+                }
+                if(ui->rev_time_checkbox->checkState() == Qt::Checked)
+                {
+                    QDateTime nowtime = QDateTime::currentDateTime();
+                    sendStr = "[" + nowtime.toString("yyyy-MM-dd hh:mm:ss") + "] [Sent] ";
+                    sendStr += str2.append("\r\n");
+                }
+                else
+                {
+                    if(ui->rev_line_checkbox->checkState() == Qt::Checked)
+                        sendStr = "[Sent] " + str2.append("\r\n");
+                    else
+                        sendStr = "[Sent] " + str2;
+                }
+            }
+            ui->recvEdit->insertPlainText(sendStr);
+            ui->recvEdit->moveCursor(QTextCursor::End);
         }
 }
 
@@ -244,7 +291,7 @@ void MainWindow::on_clrsendbutton_clicked()
 
 void MainWindow::manual_serialPortReadyRead()
 {
-    QByteArray recBuf = serialPort->readAll();;
+    QByteArray recBuf = serialPort->readAll();
         QString str_rev;
 
         // 接收字节计数
@@ -256,18 +303,21 @@ void MainWindow::manual_serialPortReadyRead()
             if(ui->rev_time_checkbox->checkState() == Qt::Checked){
                 QDateTime nowtime = QDateTime::currentDateTime();
                 str_rev = "[" + nowtime.toString("yyyy-MM-dd hh:mm:ss") + "] ";
-                str_rev += QString(recBuf).append("\r\n");
+                //str_rev += QString(recBuf).append("\r\n");
+                str_rev += QString::fromUtf8(recBuf).append("\r\n");
             }
             else{
                 // 在当前位置插入文本，不会发生换行。如果没有移动光标到文件结尾，会导致文件超出当前界面显示范围，界面也不会向下滚动。
                 //ui->recvEdit->appendPlainText(buf);
 
                 if(ui->rev_line_checkbox->checkState() == Qt::Checked){
-                    str_rev = QString(recBuf).append("\r\n");
+                     str_rev = QString::fromUtf8(recBuf).append("\r\n");
+                    //str_rev = QString(recBuf).append("\r\n");
                 }
                 else
                 {
-                    str_rev = QString(recBuf);
+                    str_rev = QString::fromUtf8(recBuf);
+                    //str_rev = QString(recBuf);
                 }
             }
         }else{
