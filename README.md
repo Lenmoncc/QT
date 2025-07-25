@@ -10,7 +10,7 @@
 - 接收数据时间戳标记  
 - 自动换行与清除接收区功能  
 - 发送/接收字节计数统计  
-![Serial](QT/pictures/Serial)
+![Serial](QT/pictures/Serial.png)
 ### 2.网络调试助手
 - 支持UDP、TCP客户端、TCP服务器三种模式  
 - 端口号范围限制（0-65535）  
@@ -19,12 +19,12 @@
 - 网络状态实时显示  
 - 自动获取本机IP地址  
 - 发送/接收字节计数统计  
-![NET](QT/pictures/NET)
+![NET](QT/pictures/NET.png)
 ### 3.综合调试工具
 - 整合串口和网络调试功能  
 - 通过**标签页**无缝切换工作模式  
 - 各自保留独立的参数配置  
-![NET&Serial](QT/pictures/NET&Serial)
+![NET&Serial](QT/pictures/NET&Serial/NET.png)
 ## 技术要点
 - QT 窗口与界面布局管理  
 - 信号与槽机制的实际应用  
